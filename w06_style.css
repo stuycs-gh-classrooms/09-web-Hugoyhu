@@ -1,0 +1,22 @@
+p,
+h1 {
+    color: blue;
+    font-weight: bold;
+    font-family: "serif";
+}
+
+p {
+    font-size: 14pt;
+}
+
+h1 {
+    text-align: center;
+    font-size: 24pt;
+    border: 3px dotted green;
+    background-color: aquamarine;
+
+}
+
+img {
+    width: 50%;
+}
