@@ -1,0 +1,39 @@
+/*
+Color Scheme
+
+Choco Cosmos: #561D25
+Caramel: #CE8147
+Flax: #ECDD7B
+Mindaro: #D3E298
+Tea Green: #CDE7BE
+*/
+
+body {
+  background-color: #D3E298;
+}
+
+h1, h2, p {
+  font-family: 'argesta_textbold', sans-serif;
+}
+
+.navButton {
+    float:left;
+    display: block;
+    border-radius: 7%;
+    border-style: solid;
+    border-color: black;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'argesta_headlineregular', sans-serif;
+    padding: 11px 14px;
+    text-decoration: none;
+}
+
+.navButton:hover {
+  background-color: #CDE7BE;
+}
+
+.active {
+  background-color: #ECDD7B;
+}
