@@ -10,23 +10,29 @@ Tea Green: #CDE7BE
 
 body {
   background-color: #D3E298;
+  padding: 5%
 }
 
-h1, h2, p {
+h1, h2, h3, p {
   font-family: 'argesta_textbold', sans-serif;
+}
+
+.navigation {
+    padding: 1em;
 }
 
 .navButton {
     float:left;
     display: block;
-    border-radius: 7%;
+    border-radius: 10%;
     border-style: solid;
     border-color: black;
     color: black;
     font-size: 20px;
     text-align: center;
     font-family: 'argesta_headlineregular', sans-serif;
-    padding: 11px 14px;
+    padding: 0.5em;
+    margin-right: 0.5em;
     text-decoration: none;
 }
 
@@ -36,4 +42,8 @@ h1, h2, p {
 
 .active {
   background-color: #ECDD7B;
+}
+
+.indent {
+  margin-left: 0.5em;
 }
