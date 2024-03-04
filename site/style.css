@@ -17,6 +17,37 @@ h1, h2, h3, p {
   font-family: 'argesta_textbold', sans-serif;
 }
 
+* {
+box-sizing: border-box;
+}
+
+.row {
+display: flex;
+flex-wrap: wrap;
+padding: 0 4px;
+}
+
+figcaption {
+    background-color: black;
+    color: white;
+    font-style: italic;
+    padding: 2px;
+    text-align: center;
+}
+
+
+.column {
+flex: 50%;
+max-width: 50%;
+padding: 0 4px;
+}
+
+.column img {
+margin-top: 8px;
+vertical-align: middle;
+width: 100%;
+}
+
 .navigation {
     padding: 1em;
 }
