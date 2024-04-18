@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="stylesheet" href="fractals.css">
+  <link rel="stylesheet" href="fonts.css">
+
+
+  <head>
+    <meta charset="utf-8">
+    <title>hhu60's Fractals</title>
+  </head>
+
+  <body>
+    <h1> Fractals </h1>
+
+    <div class="text">
+    <h2> Koch Snowflake </h2>
+    <p> This hexagonal design draws six koch curves into a hexagon. Each recursion, the length is decreased by 1 which keeps the curve flat. Each of the 6 curves is also randomly assigned a color.</p>
+    </div>
+
+    <div class="imgdiv">
+    <img src="media/fractalNew0" width="42%">
+    <img src="media/fractalOld0" width="42%">
+    </div>
+
+    <div class="codeblock">
+    <pre><code>
+      def koch (t, depth, length):
+          # recursive,  base case 0
+
+          if (depth == 0):
+              t.forward(length)
+          else:
+              koch(t, depth - 1, length-1)
+              t.left(60)
+              koch(t, depth - 1, length-1)
+              t.right(120)
+              koch(t, depth - 1, length-1)
+              t.left(60)
+              koch(t, depth - 1, length-1)
+
+      def multiKoch (t, depth, length):
+          i = 0
+          while (i < 6):
+              t.pencolor(random.randint(0, 255),
+                random.randint(0, 255),
+                random.randint(0, 255))
+              koch(t, depth, length)
+              t.right(60)
+              i += 1
+    </code></pre>
+    </div>
+
+    <div class="text">
+    <h2> Sierpinski Triangle </h2>
+    <p> The modified triangle has double spacing between each triangle, so the small triangles are not connected and are spaced out. Each small triangle is also randomly assigned a color from a predefined list of named colors.</p>
+    </div>
+
+    <div class="imgdiv">
+    <img src="media/fractalNew1.png" width="42%">
+    <img src="media/fractalOld1.png" width="42%">
+    </div>
+
+    <div class="codeblock">
+    <pre><code>
+      def sierpinski(t, depth, length):
+          t.pencolor(colors[random.randint(0,8)])
+
+          if (depth == 0):
+              i = 0
+              while (i < 3):
+                  t.fd(length)
+                  t.left(120)
+                  i += 1
+
+          else:
+              sierpinski(t, depth - 1, length)
+              t.penup()
+              t.fd(length*(2**(depth)))
+              t.pendown()
+              sierpinski(t, depth - 1, length)
+              t.left(120)
+              t.penup()
+              t.fd(length*(2**(depth)))
+              t.pendown()
+              t.right(120)
+              sierpinski(t, depth - 1, length)
+              t.right(120)
+              t.penup()
+              t.fd(length*(2**(depth)))
+              t.pendown()
+              t.left(120)
+    </code></pre>
+    </div>
+
+    <div class="text">
+    <h2> Bonsai Tree?! </h2>
+    <p>The width of the line stroke of this tree is dependent on the depth at which it occurs, and the length of the line decreases as depth increases. The colors are changed so that only the last depth has green, while the rest is brown. Lastly, there is a random angle offset of +/- up to 50% to reduce symmetry and uniformity and make the drawing less artificial. </p>
+    </div>
+    
+    <div class="imgdiv">
+    <img src="media/fractalNew2.png" width="42%">
+    <img src="media/fractalOld2.png" width="42%">
+    </div>
+
+    <div class="codeblock">
+    <pre><code>
+      def fractalTree(t, depth, length, angle):
+          t.width(depth)
+          if (depth == 0):
+              t.pencolor('green')
+              t.forward(length)
+              t.backward(length)
+
+          else:
+              rotOffset = random.randint((-1) * angle / 2, angle / 2)
+              t.pencolor('brown')
+              t.forward(length)
+              t.right((angle +rotOffset))
+              fractalTree(t, depth - 1, length-4, angle)
+              t.left (2 * (angle +rotOffset))
+              fractalTree(t, depth - 1, length-4, angle)
+              t.right((angle +rotOffset))
+              t.backward(length)
+    </code></pre>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
